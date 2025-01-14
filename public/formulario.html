@@ -1,0 +1,98 @@
+// Cargar el carrito desde el servidor
+async function cargarCarrito() {
+    try {
+        const response = await fetch('http://localhost:4000/api/carrito');
+        if (response.ok) {
+            const carrito = await response.json();
+            mostrarCarrito(carrito);
+        } else {
+            console.warn('No se pudo obtener el carrito desde el servidor.');
+        }
+    } catch (error) {
+        console.error('Hubo un problema al cargar el carrito:', error);
+    }
+}
+
+// Mostrar los productos del carrito en la página
+function mostrarCarrito(carrito) {
+    const contenedorCarrito = document.getElementById('carrito-contenido');
+    contenedorCarrito.innerHTML = '';
+
+    if (carrito.length === 0) {
+        contenedorCarrito.innerHTML = '<p>El carrito está vacío.</p>';
+        return;
+    }
+
+    carrito.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'carrito-item';
+        div.innerHTML = `
+            <p><strong>${item.nombre}</strong></p>
+            <p>Precio: $${item.precio}</p>
+            <p>Cantidad: ${item.cantidad}</p>
+            <button onclick="eliminarProductoCarrito(${item.id_carrito})">Eliminar</button>
+        `;
+        contenedorCarrito.appendChild(div);
+    });
+}
+
+// Agregar un producto al carrito
+async function agregarProductoAlCarrito(id_producto, cantidad) {
+    try {
+        const response = await fetch('http://localhost:4000/api/carrito', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id_producto, cantidad }),
+        });
+
+        if (response.ok) {
+            alert('Producto agregado al carrito');
+            cargarCarrito();
+        } else {
+            alert('No se pudo agregar el producto al carrito.');
+        }
+    } catch (error) {
+        console.error('Hubo un problema al agregar el producto al carrito:', error);
+    }
+}
+
+// Eliminar un producto del carrito
+async function eliminarProductoCarrito(id_carrito) {
+    try {
+        const response = await fetch(`http://localhost:4000/api/carrito/${id_carrito}`, {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            alert('Producto eliminado del carrito');
+            cargarCarrito();
+        } else {
+            alert('No se pudo eliminar el producto del carrito.');
+        }
+    } catch (error) {
+        console.error('Hubo un problema al eliminar el producto del carrito:', error);
+    }
+}
+
+// Vaciar el carrito
+async function vaciarCarrito() {
+    try {
+        const response = await fetch('http://localhost:4000/api/carrito', {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            alert('Carrito vaciado');
+            cargarCarrito();
+        } else {
+            alert('No se pudo vaciar el carrito.');
+        }
+    } catch (error) {
+        console.error('Hubo un problema al vaciar el carrito:', error);
+    }
+}
+
+// Cargar el carrito al inicio
+cargarCarrito();
+
+

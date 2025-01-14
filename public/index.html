@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre las mejores artesanías Miyuki hechas a mano. Compra productos exclusivos y personalizados. Promociones especiales disponibles.">
+    <title>Artesanías Miyuki - El Rincón de Marisol</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f4f0; /* Fondo blanco cálido */
+            color: #5a5a5a; /* Texto gris oscuro */
+        }
+
+        header {
+            background-color: #d6c6b8; /* Fondo tono tierra claro */
+            color: #5a5a5a; /* Texto gris oscuro */
+            text-align: center;
+            padding: 2em 0;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        header p {
+            margin: 0.5em 0 0;
+            font-size: 1.2em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5em;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        nav ul li a:hover {
+            color: #b89c7d; /* Tonalidad tierra */
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        section {
+            margin-bottom: 3em;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #b89c7d; /* Tono dorado tierra */
+            border-bottom: 2px solid #d6c6b8;
+            padding-bottom: 0.5em;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+        }
+
+        .category-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1em;
+            padding: 1em;
+            background-color: #f2ebe3; /* Fondo beige */
+            color: #5a5a5a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            width: 300px;
+            border: 1px solid #d6c6b8;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category-link img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .category-link:hover {
+            background-color: #b89c7d; /* Fondo acentuado */
+            color: #ffffff;
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .producto {
+            border: 1px solid #d6c6b8;
+            border-radius: 8px;
+            padding: 1em;
+            margin: 1em;
+            background-color: #f2ebe3;
+            text-align: center;
+            width: 200px;
+        }
+
+        .producto h3 {
+            color: #b89c7d;
+        }
+
+        .producto p {
+            color: #5a5a5a;
+        }
+
+        footer {
+            background-color: #d6c6b8; /* Fondo tono tierra claro */
+            color: #5a5a5a;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5em;
+        }
+
+        footer ul li a {
+            text-decoration: none;
+            color: #5a5a5a;
+        }
+
+        footer ul li a:hover {
+            color: #b89c7d;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            margin-top: 1em;
+        }
+
+        .social-icons a {
+            color: #5a5a5a;
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #b89c7d;
+        }
+
+        .registro {
+            margin-top: 2em;
+            padding: 1em;
+            background-color: #ffffff;
+            border: 1px solid #d6c6b8;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .registro label {
+            display: block;
+            margin-bottom: 0.5em;
+            font-weight: bold;
+        }
+
+        .registro input {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #d6c6b8;
+            border-radius: 4px;
+        }
+
+        .registro button {
+            background-color: #b89c7d;
+            color: white;
+            border: none;
+            padding: 0.5em 1em;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .registro button:hover {
+            background-color: #9b7e63;
+        }
+
+        .filter-form {
+            margin: 2em 0;
+            padding: 1em;
+            background-color: #ffffff;
+            border: 1px solid #d6c6b8;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            justify-content: center;
+        }
+
+        .filter-form label {
+            font-weight: bold;
+        }
+
+        .filter-form input, .filter-form select {
+            padding: 0.5em;
+            border: 1px solid #d6c6b8;
+            border-radius: 4px;
+        }
+
+        .productos-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            justify-content: center;
+        }
+
+        .mensaje-bienvenida {
+            text-align: center;
+            margin-top: 1em;
+            font-size: 1.2em;
+            color: #b89c7d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Artesanías Miyuki</h1>
+        <p>Productos exclusivos hechos a mano con cuentas Miyuki, El Rincón de Marisol</p>
+        <nav aria-label="Menú principal">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#categorias">Categorías</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#registro">Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio">
+            <h2>Bienvenido a Artesanías Miyuki</h2>
+            <p>Encuentra los mejores diseños para regalar o decorar. Productos personalizados para cada ocasión.</p>
+        </section>
+
+        <section id="categorias">
+            <h2>Categorías</h2>
+            <div class="categories">
+                <a href="javascript:void(0)" onclick="filtrarPorCategoria('pulseras')" class="category-link">
+                    <img src="pulseras.jpg" alt="Pulseras">
+                    <h3>Pulseras</h3>
+                </a>
+                <a href="javascript:void(0)" onclick="filtrarPorCategoria('aretes')" class="category-link">
+                    <img src="aretes.jpg" alt="Aretes">
+                    <h3>Aretes</h3>
+                </a>
+                <a href="javascript:void(0)" onclick="filtrarPorCategoria('llaveros')" class="category-link">
+                    <img src="llaveros.jpg" alt="Llaveros">
+                    <h3>Llaveros</h3>
+                </a>
+            </div>
+        </section>
+      
+        
+        <section id="productos">
+            <h2>Productos</h2>
+            <div class="filter-form">
+                <label for="busqueda">Buscar producto:</label>
+                <input type="text" id="busqueda" placeholder="Escribe el nombre del producto" onkeyup="buscarProducto()">
+
+                <label for="seleccionar-producto">Seleccionar producto:</label>
+                <select id="seleccionar-producto" onchange="seleccionarProducto()">
+                    <option value="">Seleccione un producto</option>
+                </select>
+            </div>
+            <div class="productos-list" id="lista-productos"></div>
+        </section>
+
+        <section id="agregar-producto">
+            <h2>Agregar Producto</h2>
+            <form id="form-agregar-producto" class="registro" enctype="multipart/form-data">
+                <label for="nombre-producto">Nombre del Producto:</label>
+                <input type="text" id="nombre-producto" placeholder="Nombre del producto" required>
+
+                <label for="precio-producto">Precio del Producto:</label>
+                <input type="number" id="precio-producto" placeholder="Precio del producto" min="1" required>
+
+                <label for="imagen-producto">Imagen del Producto:</label>
+                <input type="file" id="imagen-producto" accept="image/*" required>
+
+                <button type="button" onclick="agregarProducto()">Agregar Producto</button>
+                <button type="reset">Limpiar</button>
+            </form>
+            <div id="mensaje-agregar-producto" class="mensaje-bienvenida"></div>
+        </section>
+
+        <section id="registro">
+            <h2>Registro</h2>
+            <form class="registro">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Ingresa tu correo electrónico">
+
+                <button type="button" onclick="registrarUsuario()">Registrar</button>
+            </form>
+            <div id="mensaje-bienvenida" class="mensaje-bienvenida"></div>
+        </section>
+    </main>
+
+    <section id="carrito">
+        <h2>Carrito de Compras</h2>
+        <div id="carrito-contenido"></div>
+        <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Artesanías Miyuki. Todos los derechos reservados.</p>
+        <nav aria-label="Enlaces de pie de página">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#categorias">Categorías</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#registro">Registro</a></li>
+            </ul>
+        </nav>
+      <div class="social-icons">
+        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+    </footer>
+
+    <script>
+        const productosEstaticos = [
+            { name: "Pulsera Roja", price: 150, image: "pulsera-roja.jpg", category: "pulseras", id: 1 },
+            { name: "Aretes Verdes", price: 200, image: "aretes-verdes.jpg", category: "aretes", id: 2 },
+            { name: "Llavero Azul", price: 120, image: "llavero-azul.jpg", category: "llaveros", id: 3 }
+        ];
+
+        async function filtrarPorCategoria(categoria) {
+            try {
+                const response = await fetch(`http://localhost:4000/productos?categoria=${categoria}`);
+                if (response.ok) {
+                    const productosFiltrados = await response.json();
+                    mostrarProductos(productosFiltrados);
+                    llenarSelectProductos(productosFiltrados);
+                } else {
+                    console.warn("El servidor no está disponible. Usando datos estáticos.");
+                    const productosFiltrados = productosEstaticos.filter(producto => producto.category === categoria);
+                    mostrarProductos(productosFiltrados);
+                    llenarSelectProductos(productosFiltrados);
+                }
+            } catch (error) {
+                console.warn("Hubo un problema con la conexión. Usando datos estáticos.", error);
+                const productosFiltrados = productosEstaticos.filter(producto => producto.category === categoria);
+                mostrarProductos(productosFiltrados);
+                llenarSelectProductos(productosFiltrados);
+            }
+        }
+
+        function mostrarProductos(lista) {
+            const contenedor = document.getElementById("lista-productos");
+            contenedor.innerHTML = "";
+            lista.forEach(producto => {
+                const div = document.createElement("div");
+                div.className = "producto";
+                div.innerHTML = `
+                    <h3>${producto.name}</h3>
+                    <p>Precio: $${producto.price}</p>
+                    <img src="${producto.image}" alt="${producto.name}" style="width:100%">
+                    <button onclick="agregarProductoAlCarrito(${producto.id}, 1)">Añadir al carrito</button>
+                `;
+                contenedor.appendChild(div);
+            });
+        }
+
+        async function agregarProducto() {
+            const nombre = document.getElementById("nombre-producto").value;
+            const precio = document.getElementById("precio-producto").value;
+            const imagen = document.getElementById("imagen-producto").files[0];
+
+            if (!nombre || !precio || !imagen) {
+                alert("Por favor, completa todos los campos.");
+                return;
+            }
+
+            if (precio <= 0) {
+                alert("El precio debe ser un valor positivo.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("nombre", nombre);
+            formData.append("precio", precio);
+            formData.append("image", imagen);
+
+            const mensaje = document.getElementById("mensaje-agregar-producto");
+            mensaje.textContent = "Procesando...";
+
+            try {
+                const response = await fetch("http://localhost:4000/productos", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    const resultado = await response.json();
+                    mensaje.textContent = `Producto agregado: ${resultado.nombre}`;
+                    document.getElementById("form-agregar-producto").reset();
+                    fetchProductos();
+                } else {
+                    mensaje.textContent = "Error al agregar el producto.";
+                }
+            } catch (error) {
+                mensaje.textContent = "Hubo un problema con la conexión.";
+                console.error(error);
+            }
+        }
+
+        async function fetchProductos() {
+            try {
+                const response = await fetch('http://localhost:4000/productos');
+                if (response.ok) {
+                    const productos = await response.json();
+                    mostrarProductos(productos);
+                    llenarSelectProductos(productos);
+                } else {
+                    console.warn("El servidor no está disponible. Usando datos estáticos.");
+                    mostrarProductos(productosEstaticos);
+                    llenarSelectProductos(productosEstaticos);
+                }
+            } catch (error) {
+                console.warn("Hubo un problema con la conexión. Usando datos estáticos.", error);
+                mostrarProductos(productosEstaticos);
+                llenarSelectProductos(productosEstaticos);
+            }
+        }
+
+        function llenarSelectProductos(lista) {
+            const select = document.getElementById("seleccionar-producto");
+            select.innerHTML = '<option value="">Seleccione un producto</option>';
+            lista.forEach(producto => {
+                const option = document.createElement("option");
+                option.value = producto.id;
+                option.textContent = producto.name;
+                select.appendChild(option);
+            });
+        }
+
+        async function agregarProductoAlCarrito(idProducto, cantidad) {
+            try {
+                const response = await fetch("http://localhost:4000/carrito", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ id_producto: idProducto, cantidad: cantidad }),
+                });
+
+                if (response.ok) {
+                    alert("Producto agregado al carrito");
+                } else {
+                    alert("Error al agregar al carrito");
+                }
+            } catch (error) {
+                console.error("Hubo un problema al agregar al carrito:", error);
+            }
+        }
+
+        function vaciarCarrito() {
+            document.getElementById("carrito-contenido").innerHTML = "";
+        }
+
+        // Cargar todos los productos al inicio
+        fetchProductos();
+    </script>
+</body>
+</html>
+
+
+
+
